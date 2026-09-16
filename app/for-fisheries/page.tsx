@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/site/page-hero";
 import { Section, SectionHeader } from "@/components/site/section";
 import { UseCaseTabs } from "@/components/site/use-case-tabs";
 import { ComparisonTable } from "@/components/site/comparison-table";
 import { CtaSection } from "@/components/site/cta-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "For Fisheries",
   description:
     "CarpSync adapts to commercial fisheries, French carp lakes, exclusive hire lakes, syndicates and fishing holiday venues.",
-};
+  path: "/for-fisheries",
+});
 
 const cases = [
   {

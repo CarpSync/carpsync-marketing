@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   CalendarCheck,
   Fish,
@@ -13,12 +12,14 @@ import { DashboardPreview } from "@/components/site/dashboard-preview";
 import { MobileBookingPreview } from "@/components/site/mobile-booking-preview";
 import { FeatureCard } from "@/components/site/feature-card";
 import { CtaSection } from "@/components/site/cta-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Product",
   description:
     "See how CarpSync's booking calendar, availability, payments and customer management work together for fisheries.",
-};
+  path: "/product",
+});
 
 const pillars = [
   {

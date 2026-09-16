@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Smartphone,
   BarChart3,
@@ -17,12 +16,14 @@ import { PaymentDetail } from "@/components/site/payment-detail";
 import { CustomerRecord } from "@/components/site/customer-record";
 import { ExtrasCheckout } from "@/components/site/extras-checkout";
 import { AutomationTimeline } from "@/components/site/automation-timeline";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Features",
   description:
     "Explore CarpSync's full feature set — availability, payments, customers, extras and automation, built specifically for fisheries.",
-};
+  path: "/features",
+});
 
 const secondaryFeatures = [
   {
@@ -80,7 +81,7 @@ export default function FeaturesPage() {
         />
       </Section>
 
-      <Section tone="pale">
+      <Section tone="pale" id="payments">
         <SplitFeature
           reverse
           eyebrow="Payments"

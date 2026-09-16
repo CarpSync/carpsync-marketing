@@ -1,16 +1,17 @@
-import type { Metadata } from "next";
 import { Tent, UtensilsCrossed, Wheat, Plane } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Section, SectionHeader } from "@/components/site/section";
 import { FeatureCard } from "@/components/site/feature-card";
 import { MobileBookingPreview } from "@/components/site/mobile-booking-preview";
 import { CtaSection } from "@/components/site/cta-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "French Carp Lakes",
   description:
     "CarpSync for French carp lakes — week-long stays, accommodation, food packages and staged payments in one booking system.",
-};
+  path: "/french-fisheries",
+});
 
 const features = [
   {

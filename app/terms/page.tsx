@@ -1,40 +1,55 @@
-import type { Metadata } from "next";
 import { LegalPage } from "@/components/site/legal-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Terms of Service",
-  description: "Placeholder terms of service for CarpSync.",
-};
+  description:
+    "Terms for using the CarpSync marketing website and requesting a product demo.",
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (
     <LegalPage
       eyebrow="Legal"
       title="Terms of Service"
-      updated="Placeholder — to be finalised"
+      updated="16 September 2026"
       sections={[
         {
-          heading: "Overview",
+          heading: "About these terms",
           body: [
-            "This is placeholder terms of service content for the CarpSync marketing website. It should be reviewed and replaced with terms prepared or approved by CarpSync before this site goes live.",
+            "These terms apply to the CarpSync marketing website at carpsync.com. They cover browsing this site and sending a demo request. They do not replace a product agreement for using the CarpSync application itself.",
           ],
         },
         {
-          heading: "Using CarpSync",
+          heading: "Using this website",
           body: [
-            "Placeholder text describing the conditions under which fisheries and anglers may use the CarpSync platform.",
+            "You may use this site to learn about CarpSync and to request a demo. Do not misuse the site, attempt to disrupt it, or submit information you do not have the right to share.",
+            "Content on this site describes CarpSync as a product for fisheries. It is general information, not a contractual specification of features for a particular venue.",
           ],
         },
         {
-          heading: "Payments",
+          heading: "Demo requests",
           body: [
-            "Placeholder text describing how bookings, deposits, balances and refunds are handled through CarpSync.",
+            "Submitting a demo request is an enquiry, not an order. We will use the details you provide to respond. Submitting a form does not create a paid subscription or grant access to the CarpSync application.",
+          ],
+        },
+        {
+          heading: "The CarpSync product",
+          body: [
+            "Access to the live CarpSync application, including owner, customer and related product routes, is governed by the agreement in place for that product. Pricing for a venue is confirmed separately.",
+          ],
+        },
+        {
+          heading: "Liability",
+          body: [
+            "This marketing website is provided as-is. To the extent permitted by law, Karp Studio and CarpSync are not liable for losses arising from use of this website beyond what cannot be excluded under applicable law.",
           ],
         },
         {
           heading: "Contact",
           body: [
-            "Placeholder text explaining how to contact CarpSync with questions about these terms.",
+            "Questions about these terms can be sent to hello@carpsync.com.",
           ],
         },
       ]}

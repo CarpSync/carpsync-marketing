@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Fish, CalendarCheck, LineChart } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Section, SectionHeader } from "@/components/site/section";
 import { EcosystemCard } from "@/components/site/ecosystem-card";
 import { CtaSection } from "@/components/site/cta-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Karp Studio Ecosystem",
   description:
     "CarpSync is part of the Karp Studio ecosystem of software built for the angling industry.",
-};
+  path: "/ecosystem",
+});
 
 const products = [
   {

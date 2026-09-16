@@ -1,15 +1,16 @@
-import type { Metadata } from "next";
 import { Globe, CreditCard, Mail, BarChart3 } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
 import { Section, SectionHeader } from "@/components/site/section";
 import { EcosystemCard } from "@/components/site/ecosystem-card";
 import { CtaSection } from "@/components/site/cta-section";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Integrations",
   description:
     "CarpSync integrates into your existing fishery website and connects with the payment and communication tools you already use.",
-};
+  path: "/integrations",
+});
 
 const integrations = [
   {

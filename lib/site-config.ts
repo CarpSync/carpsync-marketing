@@ -1,9 +1,9 @@
 // Central configuration for editable URLs and top-level navigation.
-// Update CARPSYNC_APP_URL once the CarpSync application has a production login URL.
 export const CARPSYNC_APP_URL =
-  process.env.NEXT_PUBLIC_CARPSYNC_APP_URL ?? "https://app.carpsync.com/login";
+  process.env.NEXT_PUBLIC_CARPSYNC_APP_URL ?? "https://carpsync.com/next";
 
 export const DEMO_PATH = "/demo";
+export const CONTACT_EMAIL = "hello@carpsync.com";
 
 export type NavLink = {
   label: string;

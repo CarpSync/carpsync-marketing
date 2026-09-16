@@ -1,22 +1,23 @@
-import type { Metadata } from "next";
 import { PageHero } from "@/components/site/page-hero";
 import { Section, SectionHeader } from "@/components/site/section";
 import { PricingCard } from "@/components/site/pricing-card";
 import { Faq } from "@/components/site/faq";
 import { CtaSection } from "@/components/site/cta-section";
 import { pricingPlans } from "@/lib/pricing";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Pricing",
   description:
-    "CarpSync pricing plans for fisheries of every size, from a single lake to multi-venue operations.",
-};
+    "CarpSync plans for fisheries of every size, from a single lake to multi-venue operations. Pricing is confirmed on a demo.",
+  path: "/pricing",
+});
 
 const pricingFaqs = [
   {
-    question: "Is pricing final?",
+    question: "How is pricing confirmed?",
     answer:
-      "The plans on this page are a placeholder structure. Final pricing is confirmed when you talk to CarpSync about your specific fishery.",
+      "Plans are confirmed on a demo, based on your lakes, swims and booking volume. There are no published prices on this site yet.",
   },
   {
     question: "Is there a setup fee?",
@@ -41,7 +42,7 @@ export default function PricingPage() {
       <PageHero
         eyebrow="Pricing"
         title="Pricing built around your fishery, not a generic tier"
-        description="The plans below are a placeholder structure. Book a demo to get pricing confirmed for your lakes, swims and booking volume."
+        description="Book a demo to get pricing confirmed for your lakes, swims and booking volume."
       />
 
       <Section>

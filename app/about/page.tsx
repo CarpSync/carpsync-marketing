@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import { X, Check, Target, Layers, Sparkles, ArrowRight } from "lucide-react";
 import { PageHero } from "@/components/site/page-hero";
@@ -8,12 +7,14 @@ import { CtaSection } from "@/components/site/cta-section";
 import { DashboardPreview } from "@/components/site/dashboard-preview";
 import { BookingCalendar } from "@/components/site/booking-calendar";
 import { Logo } from "@/components/site/logo";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "About",
   description:
     "CarpSync is built by Karp Studio to give fisheries a booking system designed specifically around how lakes, swims and anglers actually work.",
-};
+  path: "/about",
+});
 
 const genericProblems = [
   "Time slots and staff rotas that don't map to lakes or swims",

@@ -20,6 +20,7 @@ export function Section({
     <section
       id={id}
       className={cn(
+        id && "scroll-mt-24",
         size === "compact" && "py-10 md:py-12",
         size === "default" && "py-14 md:py-20",
         size === "lg" && "py-20 md:py-24",

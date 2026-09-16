@@ -9,7 +9,7 @@ export function PricingPreview() {
         eyebrow="Pricing"
         align="center"
         title="Simple pricing built around your fishery"
-        description="Pricing below is a placeholder structure — final plans are confirmed when you talk to CarpSync about your venue."
+        description="Plans are confirmed on a demo, based on your lakes, swims and booking volume."
       />
       <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-3">
         {pricingPlans.map((plan) => (

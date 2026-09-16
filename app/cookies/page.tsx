@@ -1,34 +1,43 @@
-import type { Metadata } from "next";
 import { LegalPage } from "@/components/site/legal-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Cookie Policy",
-  description: "Placeholder cookie policy for CarpSync.",
-};
+  description:
+    "How cookies and similar technologies are used on the CarpSync marketing website.",
+  path: "/cookies",
+});
 
 export default function CookiesPage() {
   return (
     <LegalPage
       eyebrow="Legal"
       title="Cookie Policy"
-      updated="Placeholder — to be finalised"
+      updated="16 September 2026"
       sections={[
         {
-          heading: "Overview",
+          heading: "What this policy covers",
           body: [
-            "This is placeholder cookie policy content for the CarpSync marketing website. It should be reviewed and replaced with a policy prepared or approved by CarpSync before this site goes live.",
+            "This page explains how carpsync.com uses cookies and similar technologies. It applies to this marketing website only.",
           ],
         },
         {
-          heading: "How we use cookies",
+          heading: "Cookies we use",
           body: [
-            "Placeholder text describing the categories of cookies used on the CarpSync website, such as essential and analytics cookies.",
+            "We use essential cookies and similar storage that are required for the site to function, including security, load balancing and remembering basic session state where the hosting platform needs it.",
+            "This marketing site does not currently set analytics or advertising cookies. If that changes, this policy will be updated first.",
           ],
         },
         {
           heading: "Managing cookies",
           body: [
-            "Placeholder text describing how visitors can manage or disable cookies through their browser settings.",
+            "You can block or delete cookies in your browser settings. Blocking essential cookies may prevent parts of the site from working.",
+          ],
+        },
+        {
+          heading: "Contact",
+          body: [
+            "Questions about cookies on this website can be sent to hello@carpsync.com.",
           ],
         },
       ]}

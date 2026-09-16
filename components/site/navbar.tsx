@@ -65,7 +65,11 @@ export function Navbar() {
               </Button>
             }
           />
-          <SheetContent side="top" className="h-auto rounded-b-2xl pb-8">
+          <SheetContent
+            side="top"
+            showCloseButton={false}
+            className="h-auto rounded-b-2xl pb-8"
+          >
             <SheetHeader className="flex-row items-center justify-between space-y-0">
               <SheetTitle render={<Logo href={null} />} />
               <Button

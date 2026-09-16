@@ -12,6 +12,7 @@ import {
   FieldDescription,
   FieldSet,
   FieldLegend,
+  FieldError,
 } from "@/components/ui/field";
 import {
   Select,
@@ -22,27 +23,41 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Spinner } from "@/components/ui/spinner";
-
-const venueTypes = [
-  { value: "commercial", label: "Commercial fishery" },
-  { value: "french", label: "French carp lake" },
-  { value: "hire", label: "Exclusive hire lake" },
-  { value: "syndicate", label: "Syndicate" },
-  { value: "holiday", label: "Fishing holiday venue" },
-  { value: "other", label: "Other" },
-];
+import { submitDemoRequest } from "@/app/demo/actions";
+import { venueTypeOptions } from "@/lib/demo";
 
 export function DemoForm() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success">(
     "idle",
   );
+  const [error, setError] = useState<string | null>(null);
+  const [venueType, setVenueType] = useState("");
+  const [startedAt] = useState(() => Date.now());
 
-  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setError(null);
+
+    if (!venueType) {
+      setError("Please select a venue type.");
+      return;
+    }
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    formData.set("venue-type", venueType);
+    formData.set("started_at", String(startedAt));
+
     setStatus("submitting");
-    // This form does not yet submit to a backend. Wire this up to an email
-    // or CRM integration when one is connected to this project.
-    setTimeout(() => setStatus("success"), 600);
+    const result = await submitDemoRequest(formData);
+
+    if (!result.ok) {
+      setStatus("idle");
+      setError(result.error);
+      return;
+    }
+
+    setStatus("success");
   }
 
   if (status === "success") {
@@ -63,15 +78,35 @@ export function DemoForm() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="rounded-2xl border border-border bg-card p-6 sm:p-8"
+      className="relative rounded-2xl border border-border bg-card p-6 sm:p-8"
     >
       <FieldSet>
         <FieldLegend className="sr-only">Demo request</FieldLegend>
         <FieldGroup>
+          <div
+            aria-hidden="true"
+            inert
+            className="pointer-events-none absolute h-px w-px overflow-hidden opacity-0"
+          >
+            <input
+              name="company_website"
+              type="text"
+              tabIndex={-1}
+              autoComplete="off"
+            />
+          </div>
+
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
             <Field>
               <FieldLabel htmlFor="name">Full name</FieldLabel>
-              <Input id="name" name="name" required placeholder="Jane Angler" />
+              <Input
+                id="name"
+                name="name"
+                required
+                autoComplete="name"
+                maxLength={120}
+                placeholder="Jane Angler"
+              />
             </Field>
             <Field>
               <FieldLabel htmlFor="fishery">Fishery / venue name</FieldLabel>
@@ -79,6 +114,7 @@ export function DemoForm() {
                 id="fishery"
                 name="fishery"
                 required
+                maxLength={160}
                 placeholder="Willow Lake Fishery"
               />
             </Field>
@@ -92,18 +128,27 @@ export function DemoForm() {
                 name="email"
                 type="email"
                 required
+                autoComplete="email"
+                maxLength={254}
                 placeholder="jane@willowlake.co.uk"
               />
             </Field>
             <Field>
               <FieldLabel htmlFor="venue-type">Venue type</FieldLabel>
-              <Select name="venue-type">
+              <Select
+                name="venue-type"
+                value={venueType || undefined}
+                onValueChange={(value) => {
+                  if (typeof value === "string") setVenueType(value);
+                }}
+                required
+              >
                 <SelectTrigger id="venue-type" className="w-full">
                   <SelectValue placeholder="Select a venue type" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    {venueTypes.map((type) => (
+                    {venueTypeOptions.map((type) => (
                       <SelectItem key={type.value} value={type.value}>
                         {type.label}
                       </SelectItem>
@@ -120,6 +165,7 @@ export function DemoForm() {
               id="message"
               name="message"
               rows={4}
+              maxLength={4000}
               placeholder="Number of lakes, swims, current booking process..."
             />
             <FieldDescription>
@@ -127,6 +173,8 @@ export function DemoForm() {
               be.
             </FieldDescription>
           </Field>
+
+          {error ? <FieldError>{error}</FieldError> : null}
 
           <Button type="submit" size="lg" disabled={status === "submitting"}>
             {status === "submitting" ? (

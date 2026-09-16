@@ -10,10 +10,15 @@ import { ExtrasSection } from "@/components/home/extras-section";
 import { AutomationSection } from "@/components/home/automation-section";
 import { CaseStudy } from "@/components/home/case-study";
 import { ComparisonSection } from "@/components/home/comparison-section";
-import { TestimonialsSection } from "@/components/home/testimonials-section";
 import { PricingPreview } from "@/components/home/pricing-preview";
 import { FaqSection } from "@/components/home/faq-section";
 import { CtaSection } from "@/components/site/cta-section";
+import { DEFAULT_DESCRIPTION, pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  description: DEFAULT_DESCRIPTION,
+  path: "/",
+});
 
 export default function HomePage() {
   return (
@@ -30,7 +35,6 @@ export default function HomePage() {
       <AutomationSection />
       <CaseStudy />
       <ComparisonSection />
-      <TestimonialsSection />
       <PricingPreview />
       <FaqSection />
       <CtaSection

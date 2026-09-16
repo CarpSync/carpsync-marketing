@@ -2,6 +2,12 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Plus_Jakarta_Sans, Geist_Mono } from "next/font/google";
 import { Navbar } from "@/components/site/navbar";
 import { Footer } from "@/components/site/footer";
+import {
+  DEFAULT_DESCRIPTION,
+  DEFAULT_TITLE,
+  SITE_NAME,
+  SITE_URL,
+} from "@/lib/seo";
 import "./globals.css";
 
 const inter = Inter({
@@ -20,32 +26,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const siteUrl = "https://carpsync.com";
-
 export const metadata: Metadata = {
-  metadataBase: new URL(siteUrl),
+  metadataBase: new URL(SITE_URL),
   title: {
-    default: "CarpSync | Online Booking Software for Fisheries",
-    template: "%s | CarpSync",
+    default: DEFAULT_TITLE,
+    template: `%s | ${SITE_NAME}`,
   },
-  description:
-    "CarpSync helps fisheries and carp lakes manage online bookings, availability, payments, optional extras and customer communication from one simple platform.",
+  description: DEFAULT_DESCRIPTION,
+  robots: {
+    index: true,
+    follow: true,
+  },
   openGraph: {
-    title: "CarpSync | Online Booking Software for Fisheries",
-    description:
-      "CarpSync helps fisheries and carp lakes manage online bookings, availability, payments, optional extras and customer communication from one simple platform.",
-    url: siteUrl,
-    siteName: "CarpSync",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
+    siteName: SITE_NAME,
     type: "website",
+    locale: "en_GB",
   },
   twitter: {
     card: "summary_large_image",
-    title: "CarpSync | Online Booking Software for Fisheries",
-    description:
-      "CarpSync helps fisheries and carp lakes manage online bookings, availability, payments, optional extras and customer communication from one simple platform.",
+    title: DEFAULT_TITLE,
+    description: DEFAULT_DESCRIPTION,
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/brand/favicon.svg", type: "image/svg+xml" },
+    ],
     apple: "/apple-icon.png",
   },
 };
@@ -59,12 +67,17 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
-      lang="en"
+      lang="en-GB"
       className={`${inter.variable} ${jakarta.variable} ${geistMono.variable} h-full antialiased bg-background`}
     >
       <body className="flex min-h-full flex-col font-sans">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main id="main-content" className="flex-1">
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

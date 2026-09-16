@@ -1,9 +1,7 @@
-// Placeholder pricing structure. Prices are intentionally not final —
-// replace with confirmed figures once pricing is set.
 export const pricingPlans = [
   {
     name: "Starter",
-    price: "From £—/month",
+    price: "Contact us",
     description: "For a single lake taking online bookings for the first time.",
     features: [
       "Online bookings",
@@ -15,7 +13,7 @@ export const pricingPlans = [
   },
   {
     name: "Professional",
-    price: "From £—/month",
+    price: "Contact us",
     description: "For established fisheries managing extras and multiple swims.",
     features: [
       "Everything in Starter",

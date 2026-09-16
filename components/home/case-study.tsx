@@ -1,12 +1,19 @@
 import { Section, Eyebrow } from "@/components/site/section";
 import { DashboardPreview } from "@/components/site/dashboard-preview";
 
-// NOTE: "Tranquillity Lakes" is a placeholder example venue and the metrics
-// below are illustrative placeholders only — not verified customer data.
-const metrics = [
-  { value: "—", metricLabel: "Bookings managed (placeholder)" },
-  { value: "—", metricLabel: "Admin time saved (placeholder)" },
-  { value: "—", metricLabel: "Online booking adoption (placeholder)" },
+const capabilities = [
+  {
+    title: "Week-long stays",
+    detail: "Availability modelled around holiday-style booking patterns.",
+  },
+  {
+    title: "Accommodation & extras",
+    detail: "Lodges, food packages and bait sold in the same checkout.",
+  },
+  {
+    title: "Staged payments",
+    detail: "Deposits and balances collected against the same booking.",
+  },
 ];
 
 export function CaseStudy() {
@@ -16,40 +23,36 @@ export function CaseStudy() {
         <div>
           <Eyebrow>Example implementation</Eyebrow>
           <h2 className="mt-4 text-balance font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">
-            Tranquillity Lakes
+            How a French carp holiday venue would run on CarpSync
           </h2>
           <p className="mt-3 text-sm font-medium text-muted-foreground">
-            A premium French carp fishing venue — example integration
+            An example of a multi-lake, holiday-style setup
           </p>
           <p className="mt-5 text-pretty text-base leading-relaxed text-muted-foreground">
-            Tranquillity Lakes is an illustrative example of how a
-            multi-lake, holiday-style venue could run entirely on CarpSync —
-            from week-long booking availability through to accommodation,
-            food packages and staged payments.
+            CarpSync can model a venue with several lakes, week-long stays,
+            on-site accommodation and extras as one booking — from availability
+            through to staged payments — without spreading those steps across
+            separate tools.
           </p>
 
-          <div className="mt-8 grid grid-cols-3 gap-4">
-            {metrics.map((metric) => (
+          <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {capabilities.map((capability) => (
               <div
-                key={metric.metricLabel}
-                className="rounded-xl border border-dashed border-border bg-card p-4"
+                key={capability.title}
+                className="rounded-xl border border-border bg-card p-4"
               >
-                <p className="font-heading text-2xl font-bold text-foreground">
-                  {metric.value}
+                <p className="font-heading text-sm font-bold text-foreground">
+                  {capability.title}
                 </p>
                 <p className="mt-1 text-xs leading-snug text-muted-foreground">
-                  {metric.metricLabel}
+                  {capability.detail}
                 </p>
               </div>
             ))}
           </div>
-          <p className="mt-3 text-xs text-muted-foreground">
-            Figures shown are placeholders for illustration and will be
-            replaced with real figures once a live case study is available.
-          </p>
         </div>
 
-        <DashboardPreview label="app.carpsync.com/tranquillity-lakes" />
+        <DashboardPreview />
       </div>
     </Section>
   );

@@ -1,13 +1,14 @@
-import type { Metadata } from "next";
 import { CalendarCheck, Clock, Users } from "lucide-react";
 import { Section, Eyebrow } from "@/components/site/section";
 import { DemoForm } from "@/components/demo/demo-form";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Book a Demo",
   description:
     "Book a demo of CarpSync and see how online booking, payments and automation can work for your fishery.",
-};
+  path: "/demo",
+});
 
 const points = [
   {
