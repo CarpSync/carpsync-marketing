@@ -67,7 +67,7 @@
   --secondary: var(--brand-pale-green);
   --secondary-foreground: var(--brand-green-dark);
   --muted: #f4f6f2;
-  --muted-foreground: #5c6660;
+  --muted-foreground: #505b54;
   --accent: var(--brand-lime);
   --accent-foreground: var(--brand-charcoal);
   --destructive: oklch(0.577 0.245 27.325);

@@ -60,7 +60,7 @@ export function SplitFeature({
           ))}
         </ul>
       </div>
-      <div className={cn(reverse && "lg:order-1")}>{visual}</div>
+      <div className={cn("lg:scale-[1.08] lg:transform", reverse && "lg:order-1")}>{visual}</div>
     </div>
   );
 }

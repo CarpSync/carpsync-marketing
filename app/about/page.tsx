@@ -188,15 +188,25 @@ export default function AboutPage() {
             </Link>
           </div>
           <div className="flex flex-col items-start gap-6 rounded-2xl border border-border bg-card p-8">
-            <Logo />
+            <div className="flex items-center gap-3">
+              <Logo />
+              <span className="rounded-full border border-border bg-secondary px-2.5 py-1 text-xs font-semibold text-secondary-foreground">
+                Karp Studio ecosystem
+              </span>
+            </div>
             <p className="text-pretty text-base leading-relaxed text-muted-foreground">
               &ldquo;We build tools we&apos;d want to use ourselves — focused,
               uncomplicated and made for the way anglers and fisheries actually
               operate.&rdquo;
             </p>
-            <p className="text-sm font-semibold text-foreground">
-              The Karp Studio team
-            </p>
+            <div className="flex flex-col gap-1">
+              <p className="text-sm font-semibold text-foreground">
+                The Karp Studio team
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Focused tools for the angling world.
+              </p>
+            </div>
           </div>
         </div>
       </Section>
@@ -209,7 +219,7 @@ export default function AboutPage() {
           title="Everything comes together in one clear view"
           description="The owner dashboard brings availability, arrivals, payments and occupancy into a single place — the heart of running your fishery with CarpSync."
         />
-        <div className="mt-10">
+        <div className="mt-10 lg:scale-[1.08] lg:transform">
           <DashboardPreview />
         </div>
       </Section>

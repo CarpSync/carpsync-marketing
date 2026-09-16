@@ -17,7 +17,7 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-[1.4fr_2fr]">
           <div className="flex flex-col gap-4">
             <Logo variant="dark" />
-            <p className="max-w-xs text-sm leading-relaxed text-white/60">
+            <p className="max-w-xs text-[15px] leading-relaxed text-white/70">
               Online booking software built for fisheries, carp lakes and
               angling venues.
             </p>
@@ -34,7 +34,7 @@ export function Footer() {
                     <li key={item.href}>
                       <Link
                         href={item.href}
-                        className="text-sm text-white/60 transition-colors hover:text-[var(--brand-lime)]"
+                        className="text-[15px] text-white/70 transition-colors hover:text-[var(--brand-lime)]"
                       >
                         {item.label}
                       </Link>
@@ -46,7 +46,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-sm text-white/50 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-white/10 pt-8 text-[15px] text-white/60 sm:flex-row sm:items-center sm:justify-between">
           <p>CarpSync — Online booking software built for fisheries.</p>
           <p className="text-white/40">
             A{" "}
