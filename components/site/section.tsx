@@ -18,7 +18,7 @@ export function Section({
     <section
       id={id}
       className={cn(
-        "py-20 md:py-28",
+        "py-20 md:py-28 lg:py-32",
         tone === "pale" && "bg-secondary",
         tone === "charcoal" && "bg-[var(--brand-charcoal)] text-white",
         className,
@@ -65,17 +65,17 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        "flex max-w-2xl flex-col gap-4",
+        "flex max-w-2xl flex-col gap-3.5",
         align === "center" && "mx-auto items-center text-center",
         className,
       )}
     >
       {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-      <h2 className="text-balance font-heading text-3xl font-bold tracking-tight text-foreground md:text-4xl">
+      <h2 className="text-balance font-heading text-4xl font-bold leading-[1.1] tracking-tight text-foreground md:text-5xl lg:text-[3.25rem]">
         {title}
       </h2>
       {description ? (
-        <p className="text-pretty text-base leading-relaxed text-muted-foreground md:text-lg">
+        <p className="text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
           {description}
         </p>
       ) : null}

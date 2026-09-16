@@ -24,6 +24,8 @@ const cases = [
       "Peak-day capacity rules",
       "Fast, self-service checkout",
     ],
+    visual: "dashboard" as const,
+    visualLabel: "app.carpsync.com/commercial",
   },
   {
     value: "hire",
@@ -37,6 +39,8 @@ const cases = [
       "Shared arrival information",
       "Simple deposit collection",
     ],
+    visual: "dashboard" as const,
+    visualLabel: "app.carpsync.com/exclusive-hire",
   },
   {
     value: "holidays",
@@ -50,6 +54,7 @@ const cases = [
       "Transfers & equipment extras",
       "Non-angling guest details",
     ],
+    visual: "mobile" as const,
   },
   {
     value: "syndicate",
@@ -63,6 +68,8 @@ const cases = [
       "Session limits per member",
       "Central booking record",
     ],
+    visual: "dashboard" as const,
+    visualLabel: "app.carpsync.com/syndicate",
   },
 ];
 

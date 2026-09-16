@@ -31,21 +31,21 @@ export function PageHero({
     >
       <div
         className={cn(
-          "flex max-w-3xl flex-col gap-5",
+          "flex max-w-3xl flex-col gap-4",
           align === "center" && "mx-auto items-center text-center",
         )}
       >
         {eyebrow ? <Eyebrow>{eyebrow}</Eyebrow> : null}
-        <h1 className="text-balance font-heading text-4xl font-bold leading-tight tracking-tight text-foreground md:text-5xl">
+        <h1 className="text-balance font-heading text-5xl font-bold leading-[1.05] tracking-tight text-foreground md:text-6xl">
           {title}
         </h1>
         {description ? (
-          <p className="text-pretty text-lg leading-relaxed text-muted-foreground">
+          <p className="text-pretty text-lg leading-relaxed text-muted-foreground md:text-xl">
             {description}
           </p>
         ) : null}
         {primaryLabel ? (
-          <div className="flex flex-col gap-3 pt-2 sm:flex-row">
+          <div className="flex flex-col gap-3 pt-3 sm:flex-row">
             <Button
               size="lg"
               render={<Link href={primaryHref} />}
