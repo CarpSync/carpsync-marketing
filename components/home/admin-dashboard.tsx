@@ -10,38 +10,40 @@ import { Section, SectionHeader } from "@/components/site/section";
 import { DashboardPreview } from "@/components/site/dashboard-preview";
 
 const capabilities = [
-  { icon: CalendarDays, label: "Full booking calendar" },
-  { icon: ClipboardList, label: "Organised booking list" },
-  { icon: UserRound, label: "Customer details & history" },
-  { icon: CircleDollarSign, label: "Payment & balance status" },
-  { icon: Package, label: "Extras attached to each booking" },
-  { icon: Gauge, label: "Live availability & occupancy" },
+  { icon: CalendarDays, label: "Upcoming arrivals" },
+  { icon: Gauge, label: "Live occupancy" },
+  { icon: CircleDollarSign, label: "Balances due" },
+  { icon: ClipboardList, label: "Booking status" },
+  { icon: UserRound, label: "Customer records" },
+  { icon: Package, label: "Extras per booking" },
 ];
 
 export function AdminDashboardSection() {
   return (
-    <Section tone="pale">
-      <div className="grid grid-cols-1 gap-14 lg:grid-cols-[1fr_1.1fr] lg:items-center">
-        <div>
-          <SectionHeader
-            eyebrow="For fishery owners"
-            title="Your bookings. Your lakes. One place."
-            description="Everything you need to run the fishery day to day — bookings, availability, customers, payments and extras — sits in a single, clear dashboard."
-          />
-          <ul className="mt-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {capabilities.map((item) => (
-              <li
-                key={item.label}
-                className="flex items-center gap-2.5 rounded-lg border border-border bg-card px-3.5 py-3 text-sm font-medium text-foreground"
-              >
-                <item.icon className="size-4 text-[var(--brand-green)]" />
-                {item.label}
-              </li>
-            ))}
-          </ul>
-        </div>
+    <Section tone="charcoal" size="lg">
+      <SectionHeader
+        invert
+        align="center"
+        eyebrow="For fishery owners"
+        title="Your bookings. Your lakes. One place."
+        description="Everything you need to run the fishery day to day — arrivals, availability, customers, payments and extras — in a single, clear dashboard."
+      />
+
+      <div className="mt-10">
         <DashboardPreview />
       </div>
+
+      <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        {capabilities.map((item) => (
+          <li
+            key={item.label}
+            className="flex items-center gap-2.5 rounded-xl border border-white/10 bg-white/5 px-3.5 py-3 text-sm font-medium text-white"
+          >
+            <item.icon className="size-4 shrink-0 text-[var(--brand-lime)]" />
+            {item.label}
+          </li>
+        ))}
+      </ul>
     </Section>
   );
 }

@@ -13,9 +13,9 @@ const trustPoints = [
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden border-b border-border bg-background pt-14 pb-28 md:pt-20 md:pb-36">
+    <section className="relative overflow-hidden border-b border-border bg-background pt-12 pb-20 md:pt-16 md:pb-24">
       <div
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[420px] bg-[radial-gradient(ellipse_at_top,rgba(58,168,74,0.12),transparent_65%)]"
+        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[460px] bg-[radial-gradient(ellipse_at_top,rgba(58,168,74,0.14),transparent_65%)]"
         aria-hidden
       />
       <Container className="grid grid-cols-1 items-center gap-16 lg:grid-cols-[1fr_1.1fr]">
@@ -63,9 +63,9 @@ export function Hero() {
           </ul>
         </div>
 
-        <div className="relative lg:-mr-4">
+        <div className="relative lg:-mr-6">
           <DashboardPreview className="w-full" />
-          <div className="absolute -bottom-14 -left-8 hidden w-[200px] rotate-[-4deg] drop-shadow-[0_30px_50px_rgba(16,22,19,0.3)] sm:block md:-left-14 md:w-[220px]">
+          <div className="absolute -bottom-12 -left-6 hidden w-[220px] rotate-[-5deg] drop-shadow-[0_34px_60px_rgba(16,22,19,0.34)] sm:block md:-left-12 md:w-[248px]">
             <MobileBookingPreview />
           </div>
         </div>

@@ -31,7 +31,7 @@ export function UseCaseTabs({ cases }: { cases: UseCase[] }) {
 
       {cases.map((useCase) => (
         <TabsContent key={useCase.value} value={useCase.value}>
-          <div className="grid grid-cols-1 items-center gap-10 rounded-2xl border border-border bg-card p-8 lg:grid-cols-[1fr_1fr] lg:p-10">
+          <div className="grid grid-cols-1 items-center gap-10 rounded-2xl border border-border bg-card p-6 sm:p-8 lg:grid-cols-[0.82fr_1.18fr] lg:p-10">
             <div className="flex flex-col gap-5">
               <h3 className="font-heading text-2xl font-bold text-foreground">
                 {useCase.title}
