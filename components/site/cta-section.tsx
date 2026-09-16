@@ -20,7 +20,7 @@ export function CtaSection({
 }) {
   return (
     <Section tone="charcoal">
-      <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(166,255,0,0.12),transparent_60%)] px-6 py-16 text-center sm:px-16">
+      <div className="relative overflow-hidden rounded-3xl border border-white/15 bg-[var(--brand-charcoal)] px-6 py-16 text-center sm:px-16">
         <h2 className="text-balance font-heading text-3xl font-bold tracking-tight text-white md:text-4xl">
           {title}
         </h2>
